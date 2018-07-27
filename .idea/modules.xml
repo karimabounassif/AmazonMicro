@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AmazonMicro.iml" filepath="$PROJECT_DIR$/AmazonMicro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/applications/account/account.iml" filepath="$PROJECT_DIR$/applications/account/account.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/account_main.iml" filepath="$PROJECT_DIR$/.idea/modules/account_main.iml" group="account" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/account_test.iml" filepath="$PROJECT_DIR$/.idea/modules/account_test.iml" group="account" />
+      <module fileurl="file://$PROJECT_DIR$/applications/order/order.iml" filepath="$PROJECT_DIR$/applications/order/order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/order_main.iml" filepath="$PROJECT_DIR$/.idea/modules/order_main.iml" group="order" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/order_test.iml" filepath="$PROJECT_DIR$/.idea/modules/order_test.iml" group="order" />
+    </modules>
+  </component>
+</project>
