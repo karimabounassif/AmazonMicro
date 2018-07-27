@@ -10,6 +10,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/order_main.iml" filepath="$PROJECT_DIR$/.idea/modules/order_main.iml" group="order" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/order_test.iml" filepath="$PROJECT_DIR$/.idea/modules/order_test.iml" group="order" />
       <module fileurl="file://$PROJECT_DIR$/applications/product/product.iml" filepath="$PROJECT_DIR$/applications/product/product.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/product_main.iml" filepath="$PROJECT_DIR$/.idea/modules/product_main.iml" group="product" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/product_test.iml" filepath="$PROJECT_DIR$/.idea/modules/product_test.iml" group="product" />
       <module fileurl="file://$PROJECT_DIR$/applications/shipment/shipment.iml" filepath="$PROJECT_DIR$/applications/shipment/shipment.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/shipment_main.iml" filepath="$PROJECT_DIR$/.idea/modules/shipment_main.iml" group="shipment" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/shipment_test.iml" filepath="$PROJECT_DIR$/.idea/modules/shipment_test.iml" group="shipment" />

@@ -16,6 +16,8 @@
       <module name="account_test" target="1.8" />
       <module name="order_main" target="1.8" />
       <module name="order_test" target="1.8" />
+      <module name="product_main" target="1.8" />
+      <module name="product_test" target="1.8" />
       <module name="shipment_main" target="1.8" />
       <module name="shipment_test" target="1.8" />
     </bytecodeTargetLevel>
