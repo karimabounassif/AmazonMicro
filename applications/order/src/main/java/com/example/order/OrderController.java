@@ -1,5 +1,6 @@
 package com.example.Order;
 
+import com.example.UtilObjects.OrderDetails;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,14 +14,24 @@ public class OrderController {
 
     public OrderController(OrderService orderService) { this.orderService = orderService; }
 
-    @GetMapping("/{orderId}")
+    @GetMapping("/id/{orderId}")
     public ResponseEntity<Order> getById(@PathVariable(name="orderId") Integer id){
         return orderService.getById(id);
     }
 
+//    @GetMapping("/all")
+//    public ResponseEntity<List<Order>> getAll(){
+//        return orderService.getAllOrders();
+//    }
+
     @GetMapping
-    public ResponseEntity<List<Order>> getAll(){
-        return orderService.getAllOrders();
+    public ResponseEntity<List<Order>> getByAccount(@RequestParam("accountId") Integer accountId){
+        return orderService.getOrdersId(accountId);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<OrderDetails> getOrderDetails(@PathVariable(name="id") Integer id){
+        return orderService.getOrderDetails(id);
     }
 
     @PostMapping

@@ -4,21 +4,16 @@ import com.bootcamp.address.Address;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.ArgumentMatchers;
-import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -50,13 +45,16 @@ public class AccountControllerTest {
     }
 
     @Test
+    public void testGetById() { assertNotNull(accountController.getById(1));}
+
+    @Test
     public void testGetAll(){
         assertNotNull(accountController.getAll());
     }
 
     @Test
     public void testUpdateAccount(){
-        assertNotNull(accountController.updateAccount(new Account(1, "New", "Account", addresses)));
+        assertNotNull(accountController.updateAccount(new Account(1, "New", "Account", addresses), 1));
     }
 
     @Test

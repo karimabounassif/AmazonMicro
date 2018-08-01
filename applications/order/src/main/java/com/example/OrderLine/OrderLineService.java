@@ -5,6 +5,7 @@ import com.example.Order.OrderService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/orders/{id}/lines")
@@ -13,11 +14,18 @@ public class OrderLineService {
     private final OrderLineRepo orderLineRepo;
     private final OrderService orderService;
 
+    private RestTemplate restTemplate = new RestTemplate();
+
     public OrderLineService(OrderLineRepo orderLineRepo, OrderService orderService){ this.orderLineRepo = orderLineRepo; this.orderService = orderService; }
 
     public ResponseEntity<OrderLine> getOrderLine(Integer orderLineId){
         OrderLine orderLine = orderLineRepo.findById(orderLineId).get();
         return new ResponseEntity<>(orderLine, HttpStatus.OK);
+    }
+
+    public Integer getOrderId(Integer orderLineId){
+        OrderLine orderLine = orderLineRepo.findById(orderLineId).get();
+        return orderLine.getOrder().getOrderId();
     }
 
     public ResponseEntity<String> addOrderLine(OrderLine orderLine, Integer id){

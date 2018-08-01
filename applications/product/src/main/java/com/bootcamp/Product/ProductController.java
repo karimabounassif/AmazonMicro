@@ -1,5 +1,7 @@
 package com.bootcamp.Product;
 
+import com.netflix.ribbon.proxy.annotation.Http;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +18,11 @@ public class ProductController {
     @GetMapping("/{id}")
     public ResponseEntity<Product> getById(@PathVariable(name="id") Integer id){
         return productService.getProduct(id);
+    }
+
+    @GetMapping("/{id}/name")
+    public ResponseEntity<String> getName(@PathVariable(name="id") Integer id){
+        return new ResponseEntity<>(getById(id).getBody().getName(), HttpStatus.OK);
     }
 
     @GetMapping

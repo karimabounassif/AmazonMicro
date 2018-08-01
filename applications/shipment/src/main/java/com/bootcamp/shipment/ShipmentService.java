@@ -3,6 +3,7 @@ package com.bootcamp.shipment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -11,11 +12,17 @@ public class ShipmentService {
 
     private final ShipmentRepo shipmentRepo;
 
-    public ShipmentService(ShipmentRepo shipmentRepo) {
+    RestTemplate restTemplate;
+
+    public ShipmentService(ShipmentRepo shipmentRepo, RestTemplate restTemplate) {
         this.shipmentRepo = shipmentRepo;
+        this.restTemplate = restTemplate;
     }
 
     public ResponseEntity<Shipment> addShipment(Shipment shipment) {
+        String lineId = shipment.getOrderLineId().toString();
+        Integer orderId = restTemplate.getForObject("http://Order/orders/1/lines/orderId/" + lineId, Integer.class);
+        shipment.setOrderId(orderId);
         shipmentRepo.save(shipment);
         return new ResponseEntity<>(shipment, HttpStatus.CREATED);
     }

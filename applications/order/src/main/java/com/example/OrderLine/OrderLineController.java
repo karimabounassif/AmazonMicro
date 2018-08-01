@@ -20,6 +20,11 @@ public class OrderLineController {
         return orderLineService.getOrderLine(orderLineId);
     }
 
+    @GetMapping("/orderId/{orderLineId}")
+    public Integer getOrderId(@PathVariable(name="orderLineId") Integer orderLineId){
+        return orderLineService.getOrderId(orderLineId);
+    }
+
     @PostMapping
     public ResponseEntity<String> addOrderLine(@RequestBody OrderLine orderLine, @PathVariable(name="id") Integer id){
         return orderLineService.addOrderLine(orderLine, id);
