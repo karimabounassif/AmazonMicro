@@ -22,10 +22,10 @@ pipeline {
                sh 'cf login -a https://api.run.pivotal.io -u kabounassif@solstice.com -p $password -o solstice-org -s kabounassif-cnt'
                echo 'Deploying....'
 
-               sh 'cf push Account --random-route -p applications/account/build/libs/account-0.0.1-SNAPSHOT.jar'
-               sh 'cf push Order --random-route -p applications/order/build/libs/order-0.0.1-SNAPSHOT.jar'
-               sh 'cf push Product --random-route -p applications/product/build/libs/product-0.0.1-SNAPSHOT.jar'
-               sh 'cf push Shipment --random-route -p applications/shipment/build/libs/shipment-0.0.1-SNAPSHOT.jar'
+               sh 'cf push Account --random-route -p Users/karimabounassif/BootCamp/AmazonMicro/applications/account/build/libs/account-0.0.1-SNAPSHOT.jar'
+               sh 'cf push Order --random-route -p Users/karimabounassif/BootCamp/AmazonMicro/applications/order/build/libs/order-0.0.1-SNAPSHOT.jar'
+               sh 'cf push Product --random-route -p Users/karimabounassif/BootCamp/AmazonMicro/applications/shipment/build/libs/shipment-0.0.1-SNAPSHOT.jar'
+               sh 'cf push Shipment --random-route -p /Users/karimabounassif/BootCamp/AmazonMicro/product/account/build/libs/product-0.0.1-SNAPSHOT.jar'
            }
        }
    }
