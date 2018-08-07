@@ -7,8 +7,7 @@ pipeline {
        stage('Build') {
            steps {
                echo 'Building Application: accounts...'
-               sh 'cd applications'
-               sh 'cd account'
+               sh 'cd applications/account'
                sh './gradlew build'
                sh 'cd ..'
                echo 'Building Application: orders...'
