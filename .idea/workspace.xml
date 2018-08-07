@@ -19,7 +19,6 @@
       <change beforePath="$PROJECT_DIR$/../Amazon/src/main/java/com/bootcamp/lab/Amazon/Shipment/ShipmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Amazon/src/main/java/com/bootcamp/lab/Amazon/Shipment/ShipmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Amazon/src/main/java/com/bootcamp/lab/Amazon/Shipment/ShipmentRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Amazon/src/main/java/com/bootcamp/lab/Amazon/Shipment/ShipmentRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Amazon/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Amazon/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../amazon-microservice/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../amazon-microservice/amazon-microservice.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../amazon-microservice/applications/account-address/.gradle/4.8.1/fileChanges/last-build.bin" beforeDir="false" />
@@ -232,8 +231,8 @@
       <file leaf-file-name="Jenkinsfile" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Jenkinsfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
+            <state relative-caret-position="345">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -1740,6 +1739,9 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.UtilObjects" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -1920,7 +1922,7 @@
       <workItem from="1533304922585" duration="2349000" />
       <workItem from="1533508755930" duration="276000" />
       <workItem from="1533567689462" duration="3172000" />
-      <workItem from="1533668697021" duration="1090000" />
+      <workItem from="1533668697021" duration="1447000" />
     </task>
     <servers />
   </component>
@@ -1957,7 +1959,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95027000" />
+    <option name="totallyTimeSpent" value="95384000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1019" width="1440" height="877" extended-state="0" />
@@ -2381,8 +2383,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Jenkinsfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
+        <state relative-caret-position="345">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
