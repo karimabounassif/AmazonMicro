@@ -7,13 +7,22 @@ pipeline {
        stage('Build') {
            steps {
                echo 'Building Application: accounts...'
-               sh './gradlew -p applications/account/'
+               sh 'cd applications'
+               sh 'cd account'
+               sh './gradlew build'
+               sh 'cd ..'
                echo 'Building Application: orders...'
-               sh './gradlew -p applications/order/'
+               sh 'cd order'
+               sh './gradlew build'
+               sh 'cd ..'
                echo 'Building Application: products...'
-               sh './gradlew -p applications/product/'
+               sh 'cd product'
+               sh './gradlew build'
+               sh 'cd ..'
                echo 'Building Application: shipments...'
-               sh './gradlew -p applications/shipment/'
+               sh 'cd shipment'
+               sh './gradlew build'
+               sh 'cd ..'
            }
        }
        stage('Deploy') {
