@@ -1,6 +1,7 @@
 package com.bootcamp.account;
 import com.bootcamp.address.Address;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,9 +12,7 @@ import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 public class Account {
 
     @Id
@@ -25,11 +24,11 @@ public class Account {
     @JsonManagedReference
     private List<Address> addresses;
 
-    public Account(Integer id, String firstName, String lastName, List<Address> addresses){
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.addresses = addresses;
-    }
+//    public Account(Integer id, String firstName, String lastName, List<Address> addresses){
+//        this.id = id;
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.addresses = addresses;
+//    }
 
 }

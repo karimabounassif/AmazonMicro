@@ -44,8 +44,8 @@ public class AccountService {
         return new ResponseEntity<>(current, HttpStatus.OK);
     }
 
-    public ResponseEntity<String> deleteAccount(Account account){
-        accountRepo.deleteById(account.getId());
+    public ResponseEntity<String> deleteAccount(Integer id){
+        accountRepo.deleteById(id);
         return new ResponseEntity<>("Deleted.", HttpStatus.OK);
     }
 }

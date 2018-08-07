@@ -29,14 +29,24 @@ public class AccountControllerTest {
     ResponseEntity<String> test;
 
 
+
+
     @Before
     public void setup() throws IOException{
-        test = accountController.addAccount(new Account(1, "Karim", "Nassif", addresses));
+        Account account = new Account();
+        account.setFirstName("Karim");
+        account.setLastName("Nassif");
+        account.setAddresses(addresses);
+        accountController.addAccount(account);
     }
 
     @Test
     public void testAddAccount(){
-        assertEquals(test.getStatusCode(), HttpStatus.CREATED);
+        Account testAdd = new Account();
+        testAdd.setFirstName("Test");
+        testAdd.setLastName("Account");
+        testAdd.setAddresses(addresses);
+        assertEquals(accountController.addAccount(testAdd).getStatusCode(), HttpStatus.CREATED);
     }
 
     @Test
@@ -54,12 +64,19 @@ public class AccountControllerTest {
 
     @Test
     public void testUpdateAccount(){
-        assertNotNull(accountController.updateAccount(new Account(1, "New", "Account", addresses), 1));
+        Account newAccount = new Account();
+        newAccount.setFirstName("new");
+        newAccount.setLastName("last");
+        newAccount.setAddresses(addresses);
+        assertNotNull(accountController.updateAccount(newAccount, 1));
     }
 
     @Test
     public void testDeleteAccount(){
-        assertEquals(accountController.deleteAccount(new Account(1, "", "", addresses)).getStatusCode(), HttpStatus.OK);
+        Account test = new Account();
+        test.setFirstName("Test");
+        accountController.addAccount(test);
+        assertEquals(accountController.deleteAccount(test.getId()).getStatusCode(), HttpStatus.OK);
     }
 
 

@@ -40,7 +40,7 @@ public class AccountController {
     }
 
     @DeleteMapping()
-    public ResponseEntity<String> deleteAccount(@RequestBody Account account){
-        return accountService.deleteAccount(account);
+    public ResponseEntity<String> deleteAccount(@RequestParam Integer id){
+        return accountService.deleteAccount(id);
     }
 }

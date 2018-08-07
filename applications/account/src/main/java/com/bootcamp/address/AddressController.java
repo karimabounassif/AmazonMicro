@@ -38,7 +38,7 @@ public class AddressController {
         Account account = accountService.getById(id).getBody();
         address.setAccount(account);
         addressRepo.save(address);
-        return new ResponseEntity<>("Saved.", HttpStatus.CREATED);
+        return new ResponseEntity<>(address.getId().toString(), HttpStatus.CREATED);
     }
 
     @PutMapping("/{address_id}")

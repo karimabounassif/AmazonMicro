@@ -33,14 +33,17 @@ public class AddressControllerTest {
     AccountService accountService;
 
     List<Address> addressList = new ArrayList<>();
-    Account account = new Account(1, "Karim","Nassif", addressList);
     Address address = new Address();
+    Account account = new Account();
 
     @Before
     public void setup(){
+        addressList.add(address);
+        account.setAddresses(addressList);
+        account.setFirstName("Test");
         accountController.addAccount(account);
         address.setStreet("Test");
-        addressController.addAddress(address, 1);
+        addressController.addAddress(address, account.getId());
     }
 
     @Test
@@ -59,14 +62,14 @@ public class AddressControllerTest {
 
     @Test
     public void testAddAddress(){
-        Assert.assertEquals(addressController.addAddress(address, 1).getStatusCode(),
+        Assert.assertEquals(addressController.addAddress(address, account.getId()).getStatusCode(),
                 HttpStatus.CREATED);
     }
 
     @Test
     public void testUpdateAddress(){
         Address newAddress = new Address();
-        addressController.addAddress(newAddress, 1);
+        addressController.addAddress(newAddress, account.getId());
         Assert.assertEquals(addressController.getAddressById(newAddress.getId()).getBody().getStreet(), null);
         newAddress.setStreet("NewTest");
         newAddress.setApt("1");
@@ -80,7 +83,8 @@ public class AddressControllerTest {
     @Test
     public void testDeleteAddress(){
         Address newAddress = new Address();
-        addressController.addAddress(newAddress, 1);
+        newAddress.setStreet("Test");
+        addressController.addAddress(newAddress, account.getId());
         Assert.assertEquals(addressController.deleteAddress(newAddress.getId()).getStatusCode()
         , HttpStatus.OK);
     }

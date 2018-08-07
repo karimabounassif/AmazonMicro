@@ -14,9 +14,9 @@ public class OrderService {
 
     private final OrderRepo orderRepo;
 
-    private RestTemplate restTemplate;
+    private HystrixService hystrixService;
 
-    public OrderService(OrderRepo orderRepo, RestTemplate restTemplate) {this.orderRepo = orderRepo; this.restTemplate = restTemplate;}
+    public OrderService(OrderRepo orderRepo, HystrixService hystrixService) {this.orderRepo = orderRepo; this.hystrixService = hystrixService;}
 
     public ResponseEntity<Order> addOrder(Order order){
         orderRepo.save(order);
@@ -40,12 +40,11 @@ public class OrderService {
     public ResponseEntity<OrderDetails> getOrderDetails(Integer id){
 
         Order order = getById(id).getBody();
-
         //Get Shipments from the orderLines and convert them into displayShipments.
         List<Shipment> shipments = new ArrayList<>();
         List<displayShipment> displayShipments;
         for(OrderLine ol : order.getOrderLines()){
-            Shipment shipment = restTemplate.getForObject("http://Shipment/shipment/" + ol.getShipmentId(), Shipment.class);
+            Shipment shipment = hystrixService.getShipment(ol.getShipmentId());
             shipments.add(shipment);
         }
         displayShipments = convert(shipments);
@@ -54,12 +53,13 @@ public class OrderService {
         List<displayLines> displayLines = new ArrayList<>();
         List<OrderLine> orderLines = order.getOrderLines();
         for(OrderLine ol:orderLines){
-            String productName = restTemplate.getForObject("http://Product/product/" + ol.getProductId() + "/name", String.class);
+            String productName = hystrixService.getProductName(ol.getProductId());
             displayLines.add(new displayLines(productName, ol.getQuantity()));
         }
 
-        //Set all Orderdetails fields.
-        Address address = restTemplate.getForObject("http://Account/account/" + order.getAccountId() + "/address/" + order.getAddressId(), Address.class);
+        //Set all OrderDetails fields.
+        Address address;
+        address = hystrixService.getAddress(order.getAccountId(), order.getAddressId());
         OrderDetails orderDetails = new OrderDetails();
         orderDetails.setOrderNumber(order.getOrderId());
         orderDetails.setShippingAddress(address);

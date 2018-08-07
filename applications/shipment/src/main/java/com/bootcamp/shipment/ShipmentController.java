@@ -1,5 +1,6 @@
 package com.bootcamp.shipment;
 
+import com.bootcamp.UtilObjects.AccountShipment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +25,11 @@ public class ShipmentController {
     }
 
     @GetMapping
+    public ResponseEntity<List<AccountShipment>> getByAccount(@RequestParam Integer accountId){
+        return shipmentService.accountShipment(accountId);
+    }
+
+    @GetMapping("/all")
     public ResponseEntity<List<Shipment>> getAll(){
         return shipmentService.getAll();
     }
